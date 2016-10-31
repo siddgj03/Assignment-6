@@ -1,0 +1,317 @@
+package org.assignment6;
+
+public class Pet {
+        private String PetName;
+		private String OwnerName;
+		private String color;
+        protected int sex;
+        public static final int MALE=1,FEMALE=2,SPAYED=3,NEUTERED=4;
+        
+public Pet (String name, String ownerName, String color)
+{
+	this.PetName=name;
+	this.OwnerName=ownerName;
+	this.color=color;//Constructor 
+}
+    
+public String getPetName()
+{
+	return PetName;
+}
+    
+public String getOwnerName()
+{
+	return OwnerName;
+}
+        
+public String getColor()
+{
+	return color;
+}
+        
+public void setSex(int sexid)
+{
+	sex=sexid;
+}
+        
+public int getSex() // Should return the string equivalent of the gender, e.g the string “MALE” etc. 
+{
+	return sex;
+}
+
+public String toString()
+{
+	return ""+PetName+"\n Owned by:"+OwnerName+"\n color is:"+color+"\n Sex is:"+getSex();
+}
+
+public String getSexStr(int sexid) {
+	String str = "";
+	switch (sexid) {
+
+	case 1:
+		return "MALE";
+
+	case 2:
+		return "FEMALE";
+
+	case 3:
+		return "SPAYED";
+
+	case 4:
+		return "NEUTERED";
+
+	default:
+		return str;
+
+	}
+	
+}
+}
+----------------------------------------------------------------------------------------------------------
+package org.assignment6;
+
+public interface Boardable {
+	
+public void setBoardStart(int month, int day, int year); 
+
+public void setBoardEnd(int month, int day, int year); 
+
+public boolean boarding(int month, int day, int year); 
+
+}
+----------------------------------------------------------------------------------------------------------
+package org.assignment6;
+
+public class Cat extends Pet implements Boardable
+{
+   private String hairLength;
+   private Date boardingStart, boardingEnd;
+   
+private class Date {
+	
+   private int Day, Month, Year;
+   
+public Date(int Day, int Month, int Year) {
+		this.Day = Day;
+		this.Month = Month;
+		this.Year = Year;
+	}
+	//comparing method less than
+
+public boolean lessThan(Date date) {
+		if (this.Year < date.Year) return true;
+		else if (this.Year == date.Year) {
+			if (this.Month < date.Month) return true;
+			else if (this.Month == date.Month && this.Day <= date.Day) return true;
+		}
+		return false;
+	}
+	//comparing method greater than
+
+public boolean greaterThan(Date date) {
+		if (this.Year > date.Year) return true;
+		else if (this.Year == date.Year) {
+			if (this.Month > date.Month) return true;
+			else if (this.Month == date.Month && this.Day >= date.Day) return true;
+		}
+		return false;
+	}
+}
+public Cat (String name, String ownerName, String color, String hairLength)
+  {
+	  super(name, ownerName, color);
+	  this.hairLength=hairLength;
+	  
+  }
+  
+  public String getHairLength()
+  {
+	  return hairLength;
+  }
+  
+  public String toString()
+  {
+	  return super.toString()+"\n HairLength is:"+hairLength; 
+  }
+	
+	@Override
+	public void setBoardStart(int month, int day, int year) {
+		boardingStart = new Date(day, month, year);
+	}
+	@Override
+	public void setBoardEnd(int month, int day, int year) {
+		boardingEnd = new Date(day, month, year);
+	}
+	@Override
+	
+	public boolean boarding(int month, int day, int year) {
+		Date boarding = new Date(day, month, year);
+		return (boarding.greaterThan(boardingStart) && boarding.lessThan(boardingEnd));
+	}
+}
+-------------------------------------------------------------------------------------------------------------------
+package org.assignment6;
+
+public class Dog extends Pet implements Boardable{
+    private String size;
+    private Date boardingStart, boardingEnd;
+    
+    private class Date {
+    	
+       private int Day, Month, Year;
+       
+    public Date(int Day, int Month, int Year) {
+    		this.Day = Day;
+    		this.Month = Month;
+    		this.Year = Year;
+    	}
+    	//comparing method less than
+
+    public boolean lessThan(Date date) {
+    		if (this.Year < date.Year) return true;
+    		else if (this.Year == date.Year) {
+    			if (this.Month < date.Month) return true;
+    			else if (this.Month == date.Month && this.Day <= date.Day) return true;
+    		}
+    		return false;
+    	}
+    	//comparing method greater than
+
+    public boolean greaterThan(Date date) {
+    		if (this.Year > date.Year) return true;
+    		else if (this.Year == date.Year) {
+    			if (this.Month > date.Month) return true;
+    			else if (this.Month == date.Month && this.Day >= date.Day) return true;
+    		}
+    		return false;
+    	}
+    }
+    
+public Dog (String name, String ownerName, String color, String size)
+{
+    super(name, ownerName, color);
+    this.size=size;
+}
+
+public String getsize()
+{
+	return size;
+}
+
+public String toString()
+{
+	return super.toString()+"\n Size is:"+size;
+}
+
+@Override
+public void setBoardStart(int month, int day, int year) {
+	boardingStart = new Date(day, month, year);
+}
+@Override
+public void setBoardEnd(int month, int day, int year) {
+	boardingEnd = new Date(day, month, year);
+}
+@Override
+
+public boolean boarding(int month, int day, int year) {
+	Date boarding = new Date(day, month, year);
+	return (boarding.greaterThan(boardingStart) && boarding.lessThan(boardingEnd));
+}
+}
+------------------------------------------------------------------------------------------------------------------------
+package org.assignment6;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+
+public class AnimalHospital {
+	private Collection<Pet> animals;
+	public static final int MALE = 1, FEMALE = 2, SPAYED = 3, NEUTERED = 4;
+
+	public AnimalHospital() {
+		animals = new ArrayList<>();
+
+		
+		Dog dog1 = new Dog("Walle-e", "Pranav", "white", "2");
+		dog1.setSex(Pet.MALE);
+		dog1.setBoardStart(10, 5, 2015);
+		dog1.setBoardEnd(11, 6, 2015);
+
+		Dog dog2 = new Dog("Cooper", "Ved", "black", "1");
+		dog2.setSex(Pet.FEMALE);
+		dog2.setBoardStart(1, 1, 2016);
+		dog2.setBoardEnd(2, 2, 2016);
+
+		Dog dog3 = new Dog("Snow", "Shweta", "White", "5");
+		dog3.setSex(Pet.MALE);
+		dog3.setBoardStart(3, 12, 2016);
+		dog3.setBoardEnd(5, 12, 2016);
+
+		
+		Cat cat1 = new Cat("Tom", "CartoonNetwrk", "black", "5");
+		cat1.setSex(MALE);
+		cat1.setBoardStart(1, 1, 2016);
+		cat1.setBoardEnd(2, 1, 2016);
+
+		Cat cat2 = new Cat("Honey", "Shruthi", "brown", "3");
+		cat2.setSex(FEMALE);
+		cat2.setBoardStart(1, 22, 2016);
+		cat2.setBoardEnd(3, 12, 2016);
+
+		Cat cat3 = new Cat("Joey", "Sid", "blue", "3");
+		cat3.setSex(MALE);
+		cat3.setBoardStart(4, 2, 2016);
+		cat3.setBoardEnd(4, 12, 2016);
+
+		animals.add(dog1);
+		animals.add(dog2);
+		animals.add(dog3);
+
+		animals.add(cat1);
+		animals.add(cat2);
+		animals.add(cat3);
+	}
+
+	public void registerPet(Pet pet) {
+		animals.add(pet);
+	}
+
+	void printPetInfoByName(String name) {
+		System.out.println("Pets with name = " + name + ":\n");
+		for (Pet p : animals) {
+			if (p.getPetName().equals(name)) {
+				System.out.println(p.toString() + "\n");
+			}
+		}
+	}
+
+	void printPetInfoByOwner(String name) {
+		System.out.println(name + "'s pets:\n");
+		for (Pet p : animals) {
+			if (p.getOwnerName().equals(name)) {
+				System.out.println(p.toString() + "\n");
+			}
+		}
+	}
+
+	void printPetsBoarding(int month, int day, int year) {
+		System.out.println("Boarding:\n");
+		for (Pet p : animals) {
+			if (p instanceof Boardable) {
+				if (((Boardable) p).boarding(month, day, year)) {
+					System.out.println(p.toString() + "\n");
+				}
+			}
+		}
+	}
+
+	public static void main(String args[]) {
+		AnimalHospital Ahosp = new AnimalHospital();
+		Ahosp.printPetInfoByName("Walle-e");
+		Ahosp.printPetInfoByOwner("Pranav");
+		Ahosp.printPetsBoarding(10, 5, 2015);
+	}
+
+}
+
