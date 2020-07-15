@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:3d88cc4e-0d06-426f-82f7-9e67483887b9 -->
+<metadata name="getResourceResponse_XQUERY_TRANSFORM_PROCEDURE" path="/shared/sds/getResourceResponse_XQUERY_TRANSFORM_PROCEDURE" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters></parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="Script" type="STRING">PROCEDURE getResourceResponse_XQUERY_TRANSFORM_PROCEDURE()
+BEGIN
+  
+END</attribute>
+  <attribute name="creationDate" type="LONG">1594752230972</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">0</attribute>
+  <attribute name="impactMessage" type="NULL"/>
+  <attribute name="lastModifiedDate" type="LONG">1594752243743</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1594752230972</attribute>
+</metadata>
