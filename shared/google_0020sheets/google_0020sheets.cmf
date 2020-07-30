@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- salt:a3bba9d2-5caa-4442-a9be-91afdf293231 -->
+<metadata name="google sheets" path="/shared/google sheets" type="CONTAINER" subtype="FOLDER" changeToken="0">
+  <security>
+    <owner user="sid" domain="composite"/>
+    <privilege user="sid" domain="composite" privileges="READ WRITE"/>
+  </security>
+  <attribute name="creationDate" type="LONG">1596136409540</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">1520100</attribute>
+  <attribute name="creatorUserName" type="STRING">sid</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1596136409540</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">1520100</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">sid</attribute>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1596136409540</attribute>
+</metadata>
