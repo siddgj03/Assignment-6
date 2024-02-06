@@ -87,7 +87,7 @@
   </dependency>
   <attribute name="SQL" type="STRING">SELECT 
     *
-FROM /shared/examples/ViewOrder</attribute>
+FROM /shared/examples/ViewOrder </attribute>
   <attribute name="creationDate" type="LONG">1707229935231</attribute>
   <attribute name="creatorUserDomain" type="STRING">composite</attribute>
   <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
@@ -95,7 +95,7 @@ FROM /shared/examples/ViewOrder</attribute>
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
   <attribute name="impactLevel" type="INTEGER">0</attribute>
   <attribute name="impactMessage" type="NULL"/>
-  <attribute name="lastModifiedDate" type="LONG">1707229944397</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1707230195456</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
